@@ -8,31 +8,29 @@ import presidentImg from '@/public/images/backyardigan.jpg'
 import vicePresidentImg from '@/public/images/texasmopar.jpg'
 import vicePresidentupperImg from '@/public/images/silverbullet.jpg'
 import sergant from '@/public/images/inosuke.jpg'
-import './members.module.scss';
+import styles from './members.module.scss';
 // Import Swiper styles
-import 'swiper/css';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
 
 export default function Members()  {
   return (
     <Swiper
-    modules={[Navigation, Pagination, Scrollbar, A11y]}
+    modules={[Navigation, Pagination, A11y]}
     spaceBetween={50}
+    pagination={{clickable: true}}
     breakpoints={{
-      576: {
-        width: 576,
-        slidesPerView: 2,
+      640: {
+        width: 640,
+        slidesPerView: 1,
       },
       768: {
-         width: 768,
-         height: 768,
-        slidesPerView: 3,
+        width: 768,
+        slidesPerView: 2,
       },
     }}
+
   >
     <SwiperSlide>
             <div className="flex flex-col h-full p-6 bg-gray-800" data-aos="fade-up">
