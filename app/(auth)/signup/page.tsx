@@ -8,16 +8,17 @@ import React, { useRef } from 'react';
 export default function SignUp() {
   const form = useRef(null);
   
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.ChangeEvent<HTMLFormElement>) => {
 
     e.preventDefault();
+    const data = new FormData(e.target)
 
     const moparEmail = "";
     const subject = "New Member Alert";
-    const userName = document.getElementById('full-name')?.nodeValue;
-    const email = document.getElementById('email')?.nodeValue;
-    const instagramTag = document.getElementById('instagramTag')?.nodeValue;
-    const body = "New user " +userName+ " wants to join MI!, contact them at Instagram: "+instagramTag+" or email at "+email;
+    const fullName = data.get('fullName');
+    const email = data.get('email');
+    const instagramTag = data.get('instagramTag');
+    const body = "New user " +fullName+ " wants to join MI!, contact them at Instagram: "+instagramTag+" or email at "+email;
 
     window.open('mailto:"'+moparEmail+'"?subject='+subject+'&body='+body);
 
@@ -38,8 +39,8 @@ export default function SignUp() {
             <form ref={form} onSubmit={sendEmail}>
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
-                  <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="full-name">Full Name <span className="text-red-600">*</span></label>
-                  <input name="fullName" id="full-name" type="text" className="form-input w-full text-gray-300" placeholder="First and last name" required />
+                  <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="fullName">Full Name <span className="text-red-600">*</span></label>
+                  <input name="fullName" id="fullName" type="text" className="form-input w-full text-gray-300" placeholder="First and last name" required />
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-4">
