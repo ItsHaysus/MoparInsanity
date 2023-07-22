@@ -1,34 +1,26 @@
 "use client";
 
 import Link from 'next/link'
-import emailjs from 'emailjs-com'
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 
 
 export default function SignUp() {
-  const form = useRef();
-
+  const form = useRef(null);
+  
   const sendEmail = (e) => {
+
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_b4qmiqc",
-        "template_h9rzd14",
-        form.current,
-        "user_UHpNJFij8MtQD1aAfs38X"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("SUCCESS!");
-        },
-        (error) => {
-          console.log(error.text);
-          alert("FAILED...");
-        }
-      );
+    const moparEmail = "";
+    const subject = "New Member Alert";
+    const userName = document.getElementById('full-name')?.nodeValue;
+    const email = document.getElementById('email')?.nodeValue;
+    const instagramTag = document.getElementById('instagramTag')?.nodeValue;
+    const body = "New user " +userName+ " wants to join MI!, contact them at Instagram: "+instagramTag+" or email at "+email;
+
+    window.open('mailto:"'+moparEmail+'"?subject='+subject+'&body='+body);
+
   };
 
   return (
@@ -47,13 +39,13 @@ export default function SignUp() {
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
                   <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="full-name">Full Name <span className="text-red-600">*</span></label>
-                  <input id="full-name" type="text" className="form-input w-full text-gray-300" placeholder="First and last name" required />
+                  <input name="fullName" id="full-name" type="text" className="form-input w-full text-gray-300" placeholder="First and last name" required />
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
-                  <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="company-name">Instagram Username <span className="text-red-600">*</span></label>
-                  <input id="company-name" type="text" className="form-input w-full text-gray-300" placeholder="Your company or app name" required />
+                  <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="instagramTag">Instagram Username <span className="text-red-600">*</span></label>
+                  <input name="instagramTag" id="instagramTag" type="text" className="form-input w-full text-gray-300" placeholder="@instagramTag" required />
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-4">
