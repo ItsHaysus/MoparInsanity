@@ -2,7 +2,7 @@
   "name": "mopar-insanity",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://www.moparinsanity.com",
+  "homepage": "https://www.moparinsanity.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build ",

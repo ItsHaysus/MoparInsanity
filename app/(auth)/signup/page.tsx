@@ -13,7 +13,7 @@ export default function SignUp() {
     e.preventDefault();
     const data = new FormData(e.target)
 
-    const moparEmail = "";
+    const moparEmail = "moparinsanityrgv@gmail.com";
     const subject = "New Member Alert";
     const fullName = data.get('fullName');
     const email = data.get('email');
